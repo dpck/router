@@ -4,7 +4,7 @@ import { render } from 'preact'
 const Main = () => (
   <div>
     <ul>
-      <li><Link href="/">Home</Link></li>
+      <li><Link href="/router">Home</Link></li>
       <li><Link href="/about">About</Link></li>
       <li><Link href="/search/example/hello">Search</Link></li>
     </ul>

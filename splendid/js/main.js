@@ -676,14 +676,14 @@ function Ta(a) {
   return I("div", {}, "\n  ", I("h3", {}, "Home"), "\n  Preact Router For Depack.\n");
 }
 function Va() {
-  return I("div", {}, "\n  ", I("h3", {}, "About"), "\n  ", I("p", {}, I("em", {}, "Preact"), " is a library for making single-page websites and rendering JSX components."), "\n  ", I("p", {}, I("em", {}, "Depack"), " is front-end bundler that uses Google Closure Compiler (as well as back-end package compiler)."), "\n");
+  return I("div", {}, "\n  ", I("h3", {}, "About"), "\n  ", I("p", {}, I("em", {}, "Preact"), " is a library for making single-page\n  websites and rendering JSX components."), "\n  ", I("p", {}, I("em", {}, "Depack"), " is front-end bundler that uses Google\n  Closure Compiler (as well as back-end package compiler)."), "\n");
 }
 function Wa(a) {
   a = a.optional;
   return I("div", {}, "\n  ", I("h3", {}, "Search"), "\n  ", a, "\n");
 }
 var Xa = I(function() {
-  return I("div", {}, "\n    ", I("ul", {}, "\n      ", I("li", {}, I(Ta, {href:"/"}, "Home")), "\n      ", I("li", {}, I(Ta, {href:"/about"}, "About")), "\n      ", I("li", {}, I(Ta, {href:"/search/example/hello"}, "Search")), "\n    "), "\n    ", I(Ra, {A:function(a) {
+  return I("div", {}, "\n    ", I("ul", {}, "\n      ", I("li", {}, I(Ta, {href:"/router"}, "Home")), "\n      ", I("li", {}, I(Ta, {href:"/about"}, "About")), "\n      ", I("li", {}, I(Ta, {href:"/search/example/hello"}, "Search")), "\n    "), "\n    ", I(Ra, {A:function(a) {
     a.current && a.current.attributes.title && (document.title = a.current.attributes.title);
   }}, "\n      ", I(Ua, {path:"/", title:"@depack/router"}), "\n      ", I(Va, {path:"/about", title:"About"}), "\n      ", I(Wa, {path:"/search/:query/:optional?", title:"Search"}), "\n    "), "\n  ");
 });
