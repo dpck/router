@@ -683,7 +683,7 @@ function Wa(a) {
   return I("div", {}, "\n  ", I("h3", {}, "Search"), "\n  ", a, "\n");
 }
 var Xa = I(function() {
-  return I("div", {}, "\n    ", I("ul", {}, "\n      ", I("li", {}, I(Ta, {href:"/router"}, "Home")), "\n      ", I("li", {}, I(Ta, {href:"/about"}, "About")), "\n      ", I("li", {}, I(Ta, {href:"/search/example/hello"}, "Search")), "\n    "), "\n    ", I(Ra, {A:function(a) {
+  return I("div", {}, "\n    ", I("ul", {}, "\n      ", I("li", {}, I(Ta, {href:"/router/"}, "Home")), "\n      ", I("li", {}, I(Ta, {href:"/about"}, "About")), "\n      ", I("li", {}, I(Ta, {href:"/search/example/hello"}, "Search")), "\n    "), "\n    ", I(Ra, {A:function(a) {
     a.current && a.current.attributes.title && (document.title = a.current.attributes.title);
   }}, "\n      ", I(Ua, {path:"/", title:"@depack/router"}), "\n      ", I(Va, {path:"/about", title:"About"}), "\n      ", I(Wa, {path:"/search/:query/:optional?", title:"Search"}), "\n    "), "\n  ");
 });

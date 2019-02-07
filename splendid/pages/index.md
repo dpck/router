@@ -6,4 +6,5 @@
 
 <div id="preact"></div>
 
+<File>js/main.js.map</File>
 <Code src="example/App.jsx" type="jsx"/>
