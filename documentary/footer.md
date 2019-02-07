@@ -6,6 +6,6 @@
 
 <Footer
   client="Depack"
-  clientLink="https://artd.eco/depack">
+  clientLink="https://artd.eco/depack" />
 
 %~ -1%
