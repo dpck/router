@@ -1,25 +1,17 @@
 ## API
 
-The package is available by importing its default function:
+The package is available by importing its default function and named functions:
 
 ```js
-import router from '@depack/router'
+import Router, { Link } from '@depack/router'
 ```
 
 %~%
 
-```## router
-[
-  ["arg1", "string"],
-  ["arg2?", "boolean"]
-]
-```
-
-Call this function to get the result you want.
-
-%TYPEDEF types/index.xml%
+## Router
 
 %EXAMPLE: example/example.js, ../src => @depack/router%
-%FORK example example/example%
+
+If there is an error rendering the destination route, a 404 will be displayed.
 
 %~%

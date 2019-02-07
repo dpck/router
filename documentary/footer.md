@@ -4,8 +4,8 @@
 
 ## Copyright
 
-(c) [Art Deco][1] 2019
-
-[1]: https://artd.eco/depack
+<Footer
+  client="Depack"
+  clientLink="https://artd.eco/depack">
 
 %~ -1%

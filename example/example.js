@@ -1,9 +1,13 @@
-/* yarn example/ */
-import router from '../src'
+import Router from 'preact-router'
+import { render } from 'preact'
 
-(async () => {
-  const res = await router({
-    text: 'example',
-  })
-  console.log(res)
-})()
+const Main = () => (
+  <Router>
+    <Home path="/" />
+    <About path="/about" />
+    // Advanced is an optional query
+    <Search path="/search/:query/:advanced?" />
+  </Router>
+)
+
+render(<Main />, document.body)
