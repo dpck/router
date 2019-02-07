@@ -1,6 +1,6 @@
 {
   "name": "@depack/router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Preact Router Component For Compilation With Depack.",
   "module": "src/index.jsx",
   "main": "src/index.jsx",
