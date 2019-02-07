@@ -1,0 +1,27 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+.tm, .tm2 {
+    font-family: monospace;
+}
+.tm {
+    background-color: lightgreen;
+}
+.tm2 {
+    background-color: lightcoral;
+}
+body {
+    font-family: 'Ruda', sans-serif;
+}
+footer {
+    padding: 1em;
+    border-top: 1px dashed;
+}
+.active {
+    font-weight: bold;
+}
+#preact {
+    text-align: center;
+    background: linear-gradient(#e4ffe4, #fffcdb);
+}

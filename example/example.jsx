@@ -14,7 +14,7 @@ import render from 'preact-render-to-string'
           </style>
           <title>Router Example</title>
         </head>
-        <body>
+        <body id="preact">
           <script type="module" src="example/App.jsx"/>
         </body>
       </html>)

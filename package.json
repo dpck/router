@@ -17,7 +17,8 @@
     "d1": "NODE_DEBUG=doc doc src/index.js -g",
     "rec": "NODE_DEBUG=appshot appshot -T 23 -a Terminal -y 150 -f",
     "e": "node example",
-    "example/": "yarn e example/example"
+    "example/": "yarn e example/example",
+    "depack": "depack-dev example/App.jsx -o splendid/js/main.js -I 2018 -a -H -p -w"
   },
   "files": [
     "src"

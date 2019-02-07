@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Depack Preact Router</title>
+        <link href="styles/app.css" rel="stylesheet">
+        <link href="styles/default.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ruda" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Depack Router</h1>
+        
+        <p>This is a component that is based on <a href="https://github.com/developit/preact-router"><span class="tm">preact-router</span></a> and is suitable for compilation with Google Closure Compiler via <span class="tm2">Depack</span>.</p>
+        
+        <h2>Demo</h2>
+        
+        <div id="preact"></div>
+        
+        <pre><code class="jsx hljs"><span class="hljs-keyword">import</span> Router, { Link } <span class="hljs-keyword">from</span> <span class="hljs-string">'../src'</span>
+<span class="hljs-keyword">import</span> { render } <span class="hljs-keyword">from</span> <span class="hljs-string">'preact'</span>
+
+<span class="hljs-keyword">const</span> Main = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> (
+  &lt;div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;Link href="/"&gt;Home&lt;/Link&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;Link href="/about"&gt;About&lt;/Link&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;Link href="/search/example/hello"&gt;Search&lt;/Link&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;Router onChange={(e) =&gt; {
+      if (e.current &amp;&amp; e.current.attributes.title) {
+        document.title = e.current.attributes.title
+      }
+    }}&gt;
+      &lt;Home path="/" title="@depack/router" /&gt;
+      &lt;About path="/about" title="About" /&gt;
+      &lt;Search path="/search/:query/:optional?" title="Search" /&gt;
+    &lt;/Router&gt;
+  &lt;/div&gt;
+)
+
+const Home = () =&gt; &lt;div&gt;
+  &lt;h3&gt;Home&lt;/h3&gt;
+  Preact Router For Depack.
+&lt;/div&gt;
+const About = () =&gt; &lt;div&gt;
+  &lt;h3&gt;About&lt;/h3&gt;
+  &lt;p&gt;&lt;em&gt;Preact&lt;/em&gt; is a library for making single-page
+  websites and rendering JSX components.&lt;/p&gt;
+  &lt;p&gt;&lt;em&gt;Depack&lt;/em&gt; is front-end bundler that uses Google
+  Closure Compiler (as well as back-end package compiler).&lt;/p&gt;
+&lt;/div&gt;
+const Search = ({ optional }) =&gt; &lt;div&gt;
+  &lt;h3&gt;Search&lt;/h3&gt;
+  {optional}
+&lt;/div&gt;
+
+render(&lt;Main /&gt;, document.querySelector('#preact'))</code></pre>
+        
+        <hr>
+        <a href="https://github.com/dpck/router">@depack/router</a>
+        <script src="js/main.js"></script>
+    </body>
+</html>
