@@ -28,7 +28,9 @@
   },
   "keywords": [
     "router",
-    "depack"
+    "depack",
+    "preact",
+    "closure"
   ],
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
