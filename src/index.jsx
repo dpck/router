@@ -1,17 +1,13 @@
 import { cloneElement, Component } from 'preact'
-import { exec, prepareVNodeForRanking, assign, pathRankSort } from './util'
+import {
+  exec, prepareVNodeForRanking, pathRankSort, isPreactElement,
+} from './util'
 
 let customHistory = null
 
 const ROUTERS = []
 
 const subscribers = []
-
-const EMPTY = {}
-
-function isPreactElement(node) {
-  return node['__preactattr_']!=null || typeof Symbol!=='undefined' && node[Symbol.for('preactattr')]!=null
-}
 
 function setUrl(url, type='push') {
   if (customHistory && customHistory[type]) {
@@ -22,7 +18,6 @@ function setUrl(url, type='push') {
   }
 }
 
-
 function getCurrentUrl() {
   let url
   if (customHistory && customHistory.location) {
@@ -32,12 +27,10 @@ function getCurrentUrl() {
     url = customHistory.getCurrentLocation()
   }
   else {
-    url = typeof location!=='undefined' ? location : EMPTY
+    url = typeof location!=='undefined' ? location : {}
   }
   return `${url.pathname || ''}${url.search || ''}`
 }
-
-
 
 function route(url, replace=false) {
   if (typeof url!=='string' && url.url) {
@@ -53,7 +46,6 @@ function route(url, replace=false) {
   return routeTo(url)
 }
 
-
 /** Check if the given URL can be handled by any router instances. */
 function canRoute(url) {
   for (let i=ROUTERS.length; i--;) {
@@ -61,7 +53,6 @@ function canRoute(url) {
   }
   return false
 }
-
 
 /** Tell all router instances to handle the given URL.  */
 function routeTo(url) {
@@ -76,7 +67,6 @@ function routeTo(url) {
   }
   return didRoute
 }
-
 
 function routeFromLink(node) {
   // only valid elements
@@ -102,7 +92,9 @@ function handleLinkClick(e) {
   }
 }
 
-
+/**
+ * @param {MouseEvent} e
+ */
 function prevent(e) {
   if (e) {
     if (e.stopImmediatePropagation) e.stopImmediatePropagation()
@@ -111,7 +103,6 @@ function prevent(e) {
   }
   return false
 }
-
 
 function delegateLinkHandler(e) {
   // ignore events the browser takes care of already:
@@ -129,7 +120,6 @@ function delegateLinkHandler(e) {
   } while ((t=t.parentNode))
 }
 
-
 let eventListenersInitialized = false
 
 function initEventListeners() {
@@ -146,8 +136,7 @@ function initEventListeners() {
   eventListenersInitialized = true
 }
 
-
-class Router extends Component {
+export default class Router extends Component {
   constructor(props) {
     super(props)
     if (props.history) {
@@ -218,8 +207,7 @@ class Router extends Component {
         let matches = exec(url, vnode.attributes.path, vnode.attributes)
         if (matches) {
           if (invoke !== false) {
-            let newProps = { url, matches }
-            assign(newProps, matches)
+            let newProps = { url, matches, ...matches }
             delete newProps.ref
             delete newProps.key
             return cloneElement(vnode, newProps)
@@ -253,12 +241,42 @@ class Router extends Component {
   }
 }
 
-const Link = (props) => {
+const StaticLink = (props) => {
   return <a {...props} onClick={handleLinkClick} />
 }
 
-const Route = props => h(props.component, props)
+export class Match extends Component {
+  constructor() {
+    super()
+    this.update = this.update.bind(this)
+  }
+  update(url) {
+    this.nextUrl = url
+    this.setState({})
+  }
+  componentDidMount() {
+    subscribers.push(this.update)
+  }
+  componentWillUnmount() {
+    subscribers.splice(subscribers.indexOf(this.update)>>>0, 1)
+  }
+  render(props) {
+    let url = this.nextUrl || getCurrentUrl(),
+      path = url.replace(/\?.+$/,'')
+    this.nextUrl = null
+    const ch = props.children.filter(c => typeof c == 'function')
+    return ch[0] && ch[0]({
+      url,
+      path,
+      matches: path===props.path,
+    })
+  }
+}
 
-export { subscribers, getCurrentUrl, route, Router, Route, Link }
-
-export default Router
+export const Link = ({ activeClassName = 'active', path, ...props }) => (
+  <Match path={path || props.href}>
+    { ({ matches }) => (
+      <StaticLink {...props} className={[props.class || props.className, matches && activeClassName].filter(Boolean).join(' ')} />
+    ) }
+  </Match>
+)

@@ -81,3 +81,7 @@ export function rank(path) {
 function rankChild(vnode) {
   return vnode.attributes.default ? 0 : rank(vnode.attributes.path)
 }
+
+export function isPreactElement(node) {
+  return node['__preactattr_']!=null || typeof Symbol!=='undefined' && node[Symbol.for('preactattr')]!=null
+}
