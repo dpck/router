@@ -60,21 +60,21 @@ const Main = () => (
   </div>
 )
 
-const Home = () => <div>
+const Home = () => (<div>
   <h3>Home</h3>
   Preact Router For Depack.
-</div>
-const About = () => <div>
+</div>)
+const About = () => (<div>
   <h3>About</h3>
   <p><em>Preact</em> is a library for making single-page
   websites and rendering JSX components.</p>
   <p><em>Depack</em> is front-end bundler that uses Google
   Closure Compiler (as well as back-end package compiler).</p>
-</div>
-const Search = ({ optional }) => <div>
+</div>)
+const Search = ({ optional }) => (<div>
   <h3>Search</h3>
   {optional ? `You've searched for: ${optional}` : ''}
-</div>
+</div>)
 
 render(<Main />, document.querySelector('#preact'))
 ```
