@@ -2,7 +2,6 @@
   "name": "@depack/router",
   "version": "0.0.0",
   "description": "The Router Component For Ajax Navigation.",
-  "main": "build/index.js",
   "module": "src/index.js",
   "scripts": {
     "t": "zoroaster -a",
@@ -15,7 +14,6 @@
     "b": "alamode src -o build -s",
     "d": "yarn-s d1",
     "d1": "NODE_DEBUG=doc doc src/index.js -g",
-    "build": "yarn-s d b doc",
     "rec": "NODE_DEBUG=appshot appshot -T 23 -a Terminal -y 150 -f",
     "e": "node example",
     "example/": "yarn e example/example.js"
