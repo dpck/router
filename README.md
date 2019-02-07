@@ -8,7 +8,9 @@
 yarn add -E @depack/router
 ```
 
-The original source code is from https://github.com/developit/preact-router but it was modified to be able to compile front-ends that use it with Depack using Google Closure Compiler.
+The original source code is from [preact-router](https://github.com/developit/preact-router) but it was modified to be able to compile front-ends that use it with Depack using Google Closure Compiler.
+
+**DEMO**: https://dpck.github.io/router/
 
 > *Connect your Preact components up to that address bar.*
 
@@ -36,32 +38,46 @@ import Router, { Link } from '@depack/router'
 ## Router
 
 ```jsx
-import core from '@idio/core'
-import render from 'preact-render-to-string'
+import Router, { Link } from '@depack/router'
+import { render } from 'preact'
 
-(async () => {
-  const { url } = await core({
-    frontend: { directory: ['example', 'src'] },
-    serve(ctx) {
-      ctx.body = '<!doctype html>' + render(<html>
-        <head>
-          <style>
-            {`.active {
-              font-weight: bold;
-            }`}
-          </style>
-          <title>Router Example</title>
-        </head>
-        <body id="preact">
-          <script type="module" src="example/App.jsx"/>
-        </body>
-      </html>)
-    },
-  })
-  console.log(url)
-})()
+const Main = () => (
+  <div>
+    <ul>
+      <li><Link href="/router/">Home</Link></li>
+      <li><Link href="/about">About</Link></li>
+      <li><Link href="/search/example/hello">Search</Link></li>
+    </ul>
+    <Router onChange={(e) => {
+      if (e.current && e.current.attributes.title) {
+        document.title = e.current.attributes.title
+      }
+    }}>
+      <Home path="/router/" title="@depack/router" />
+      <About path="/about" title="About" />
+      <Search path="/search/:query/:optional?" title="Search" />
+    </Router>
+  </div>
+)
+
+const Home = () => <div>
+  <h3>Home</h3>
+  Preact Router For Depack.
+</div>
+const About = () => <div>
+  <h3>About</h3>
+  <p><em>Preact</em> is a library for making single-page
+  websites and rendering JSX components.</p>
+  <p><em>Depack</em> is front-end bundler that uses Google
+  Closure Compiler (as well as back-end package compiler).</p>
+</div>
+const Search = ({ optional }) => <div>
+  <h3>Search</h3>
+  {optional ? `You've searched for: ${optional}` : ''}
+</div>
+
+render(<Main />, document.querySelector('#preact'))
 ```
-
 If there is an error rendering the destination route, a 404 will be displayed.
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>

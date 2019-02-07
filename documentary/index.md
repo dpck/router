@@ -8,7 +8,9 @@
 yarn add -E @depack/router
 ```
 
-The original source code is from https://github.com/developit/preact-router but it was modified to be able to compile front-ends that use it with Depack using Google Closure Compiler.
+The original source code is from [preact-router](https://github.com/developit/preact-router) but it was modified to be able to compile front-ends that use it with Depack using Google Closure Compiler.
+
+**DEMO**: https://dpck.github.io/router/
 
 > *Connect your Preact components up to that address bar.*
 
