@@ -35,9 +35,9 @@
   "author": "Anton <anton@adc.sh>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/artdecocode/router/issues"
+    "url": "https://github.com/dpck/router/issues"
   },
-  "homepage": "https://github.com/artdecocode/router#readme",
+  "homepage": "https://github.com/dpck/router#readme",
   "devDependencies": {
     "alamode": "1.7.3",
     "documentary": "1.21.1",
