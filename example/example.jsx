@@ -1,4 +1,4 @@
-import Router from 'preact-router'
+import Router from '../src'
 import { render } from 'preact'
 
 const Main = () => (

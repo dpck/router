@@ -35,8 +35,8 @@ import Router, { Link } from '@depack/router'
 
 ## Router
 
-```js
-import Router from 'preact-router'
+```jsx
+import Router from '@depack/router'
 import { render } from 'preact'
 
 const Main = () => (
