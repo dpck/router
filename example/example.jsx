@@ -15,10 +15,10 @@ import render from 'preact-render-to-string'
           <title>Router Example</title>
         </head>
         <body id="preact">
-          <script type="module" src="example/App.jsx"/>
+          <script type="module" src="/example/App.jsx"/>
         </body>
       </html>)
     },
   })
-  console.log(url)
+  console.log('%s/router/', url)
 })()

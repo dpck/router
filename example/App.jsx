@@ -13,7 +13,7 @@ const Main = () => (
         document.title = e.current.attributes.title
       }
     }}>
-      <Home path="/" title="@depack/router" />
+      <Home path="/router/" title="@depack/router" />
       <About path="/about" title="About" />
       <Search path="/search/:query/:optional?" title="Search" />
     </Router>
@@ -33,7 +33,7 @@ const About = () => <div>
 </div>
 const Search = ({ optional }) => <div>
   <h3>Search</h3>
-  {optional}
+  {optional ? `You've searched for: ${optional}` : ''}
 </div>
 
 render(<Main />, document.querySelector('#preact'))

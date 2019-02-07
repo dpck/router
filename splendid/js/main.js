@@ -680,12 +680,12 @@ function Va() {
 }
 function Wa(a) {
   a = a.optional;
-  return I("div", {}, "\n  ", I("h3", {}, "Search"), "\n  ", a, "\n");
+  return I("div", {}, "\n  ", I("h3", {}, "Search"), "\n  ", a ? "You've searched for: " + a : "", "\n");
 }
 var Xa = I(function() {
   return I("div", {}, "\n    ", I("ul", {}, "\n      ", I("li", {}, I(Ta, {href:"/router/"}, "Home")), "\n      ", I("li", {}, I(Ta, {href:"/about"}, "About")), "\n      ", I("li", {}, I(Ta, {href:"/search/example/hello"}, "Search")), "\n    "), "\n    ", I(Ra, {A:function(a) {
     a.current && a.current.attributes.title && (document.title = a.current.attributes.title);
-  }}, "\n      ", I(Ua, {path:"/", title:"@depack/router"}), "\n      ", I(Va, {path:"/about", title:"About"}), "\n      ", I(Wa, {path:"/search/:query/:optional?", title:"Search"}), "\n    "), "\n  ");
+  }}, "\n      ", I(Ua, {path:"/router/", title:"@depack/router"}), "\n      ", I(Va, {path:"/about", title:"About"}), "\n      ", I(Wa, {path:"/search/:query/:optional?", title:"Search"}), "\n    "), "\n  ");
 });
 xa(void 0, Xa, {}, !1, document.querySelector("#preact"), !1);
 
