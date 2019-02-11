@@ -1,5 +1,9 @@
 ## 11 February 2019
 
+### 1.0.3
+
+- [package] Add `build` to `files`.
+
 ### 1.0.2
 
 - [build] Publish `build` folder.

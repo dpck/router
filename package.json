@@ -21,7 +21,8 @@
     "depack": "depack-dev example/App.jsx -o splendid/js/main.js -I 2018 -a -H -p -w"
   },
   "files": [
-    "src"
+    "src",
+    "build"
   ],
   "repository": {
     "type": "git",
