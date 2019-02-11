@@ -1,3 +1,9 @@
+## 11 February 2019
+
+### 1.0.2
+
+- [build] Publish `build` folder.
+
 ## 7 February 2019
 
 ### 1.0.1
