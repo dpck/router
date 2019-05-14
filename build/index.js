@@ -148,6 +148,11 @@ export default class Router extends Component {
       url: props.url || getCurrentUrl(),
     }
 
+    this._didRoute = null
+    this.updating = null
+    this.unlisten = null
+    this.previousUrl = null
+
     initEventListeners()
   }
 
@@ -243,13 +248,14 @@ export default class Router extends Component {
 }
 
 const StaticLink = (props) => {
-  return h('a',{...props,'onClick':handleLinkClick})
+  return h('a',{...props, 'onClick':handleLinkClick })
 }
 
 export class Match extends Component {
   constructor() {
     super()
     this.update = this.update.bind(this)
+    this.nextUrl = null
   }
   update(url) {
     this.nextUrl = url

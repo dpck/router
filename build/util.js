@@ -1,13 +1,5 @@
 const EMPTY = {}
 
-export function assign(obj, props) {
-  // eslint-disable-next-line guard-for-in
-  for (let i in props) {
-    obj[i] = props[i]
-  }
-  return obj
-}
-
 export function exec(url, route, opts) {
   let reg = /(?:\?([^#]*))?(#.*)?$/,
     c = url.match(reg),

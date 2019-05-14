@@ -147,6 +147,11 @@ export default class Router extends Component {
       url: props.url || getCurrentUrl(),
     }
 
+    this._didRoute = null
+    this.updating = null
+    this.unlisten = null
+    this.previousUrl = null
+
     initEventListeners()
   }
 
@@ -249,6 +254,7 @@ export class Match extends Component {
   constructor() {
     super()
     this.update = this.update.bind(this)
+    this.nextUrl = null
   }
   update(url) {
     this.nextUrl = url
