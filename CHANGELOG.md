@@ -1,3 +1,9 @@
+## 14 May 2019
+
+### [1.0.4](https://github.com/dpck/router/compare/v1.0.3...v1.0.4)
+
+- [fix] Assign used properties in constructors for the compiler.
+
 ## 11 February 2019
 
 ### 1.0.3
